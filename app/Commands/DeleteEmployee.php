@@ -32,7 +32,7 @@ class DeleteEmployee extends Command
         $employee = DB::table('employee')->find($this->argument('id'));
         if($employee){
             DB::table('employee')->delete($employee->id);
-            $this->notify('Delete Notification','an employee    ' . $employee->name . '   is deleted');
+            $this->notify('Delete Notification','an employee    ' . $employee->name . '   is deleted','Images/delete.png');
         }else{
             $this->info('there is no Employee with this ID');
         }

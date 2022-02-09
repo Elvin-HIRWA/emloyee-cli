@@ -29,9 +29,11 @@ class ReadAllEmployee extends Command
      */
     public function handle()
     {
+        $headers = ['ID','Name'];
         $employees = DB::table('employee')->get();
         foreach ($employees as $employee) {
             $this->info('ID:' . $employee->id . '    Name:' . $employee->name);
+        // $this->table($headers,$employees);
         }
     }
 
