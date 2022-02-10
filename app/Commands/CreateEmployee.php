@@ -48,7 +48,7 @@ class CreateEmployee extends Command
             'phone' => $phone
         ]);
 
-    $this->notify('Notification','New Record Inserted');
+    $this->notify('Notification','New Record Inserted','Images/add.png');
     
     }
         // $employee = DB::table('employee')->find($this->argument('id'));
