@@ -31,11 +31,25 @@ class ReadAllEmployee extends Command
     {
         $headers = ['ID','Name'];
         $employees = DB::table('employee')->get();
-        foreach ($employees as $employee) {
-            $this->info('ID:' . $employee->id . '    Name:' . $employee->name);
-        // $this->table($headers,$employees);
+
+        // foreach ($employees as $employee) {
+            
+            // $this->table($headers,
+            // $this->info($employee->id.$employee->name);
+        // $this->
+        $employee= DB::select("SELECT * FROM employee");
+
+        $results = [];
+
+        foreach($employee as $key => $value){
+            $results[$key] = (array) $value;
         }
+        
+        $this->table(['Id', 'Name', 'Email', 'Phone'],$results);
+        // }   
     }
+    
+    
 
     /**
      * Define the command's schedule.
